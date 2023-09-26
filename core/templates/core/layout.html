@@ -1,0 +1,51 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title class="brand">{% block title %}Search Savvy{% endblock %}</title>
+    <link href="{% static 'core/styles.css' %}" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <nav>
+      <ul class="nav-list">
+        <li class="nav-item">
+          <p class="brand">Search Savvy</p>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'index' %}">Home</a>
+        </li>
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'courses' %}">Courses</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'login' %}">Log In</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'register' %}">Register</a>
+        </li>
+        {% endif %}
+      </ul>
+    </nav>
+    {% block body %} {% endblock %}
+
+    <footer class="footer bg-dark text-light py-4">
+      <div class="container text-center">
+        <p class="mb-0">© 2023 Search Savvy. All rights reserved.</p>
+        <p class="mb-0">
+          Built using Django and JavaScript by Russell Hopkins.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
+
+{% block script %}
+<script src="{% static 'core/courses.js' %}"></script>
+{% endblock %}

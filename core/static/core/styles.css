@@ -1,0 +1,245 @@
+@font-face {
+  font-family: "Iter Light";
+  src: url("/static/core/fonts/Inter-Light.ttf") format("truetype");
+  font-weight: normal;
+  font-size: normal;
+}
+
+@font-face {
+  font-family: "Iter Regular";
+  src: url("/static/core/fonts/Inter-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-size: normal;
+}
+
+body {
+  margin: 0;
+  font-family: "Iter Light", sans-serif;
+}
+
+/* navigation styles start here  */
+
+nav {
+  /* height: 80px; */
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list {
+  box-shadow: 0px 0px 10px grey;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-bottom: 1.2em;
+}
+
+.nav-item {
+  margin-top: 1em;
+  list-style: none;
+  margin-right: 2rem;
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  text-wrap: nowrap;
+  font-size: 16px;
+}
+
+.nav-item:first-child {
+  margin-right: auto;
+}
+
+.brand {
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+  font-size: 2em;
+  margin-left: 0.3em;
+  color: #00262b;
+  font-family: "Iter Regular", sans-serif;
+}
+
+nav {
+  /* position: absolute;
+  text-align: left;
+  top: 100%; */
+  margin-bottom: 3px;
+}
+
+/* Index page styling starts here */
+
+.brand_header {
+  background-color: #e1dddb;
+}
+
+.brand_h1 {
+  padding-top: 1%;
+  margin-top: 0;
+  color: #00262b;
+  text-align: center;
+  font-family: "Iter Regular", sans-serif;
+  font-size: 3em;
+}
+
+.brand_paragraph {
+  text-align: center;
+  font-family: "Iter Regular", sans-serif;
+  margin-top: 3%;
+  font-size: 1.5em;
+}
+
+.cta_btn {
+  background: #d23228;
+  color: #fff;
+  border: 1px solid #0000;
+  font-family: "Iter Regular", sans-serif;
+  margin-left: 50%;
+  margin-top: 0.5%;
+  text-wrap: nowrap;
+  height: 3.5em;
+  width: 7em;
+  font-size: 1em;
+  margin-bottom: 1em;
+}
+
+.cta-btn:hover {
+  cursor: pointer;
+  background: #fff;
+  color: #d23228;
+}
+
+.why {
+  height: 30%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1em;
+}
+
+.why_image {
+  max-width: 55%;
+  height: auto;
+  margin-left: 10em;
+}
+
+.why_content {
+  background-color: #00262b;
+  color: #fff;
+  font-family: "Iter Regular", sans-serif;
+  text-align: center;
+}
+
+.why_header {
+  font-size: 2.5em;
+}
+
+.why_para {
+  padding-top: 1.5em;
+  font-size: 1.5em;
+  padding-left: 2em;
+}
+
+.testimonials {
+  text-align: center;
+  border: 2px solid #333;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Box shadow for a lifted effect */
+}
+
+.testimonial_text {
+  font-size: 16px; /* Adjust the font size for the testimonial text */
+  margin-bottom: 10px;
+  line-height: 1.5;
+  color: #333; /* Text color */
+}
+
+.testimonial_author {
+}
+
+/* Add a border and padding to all containers */
+.container,
+.container-fluid,
+.answersContainer {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the header inside the containers */
+.container h1,
+.container h2,
+.container h3,
+.answersContainer h1,
+.answersContainer h2,
+.answersContainer h3 {
+  margin-top: 0;
+}
+
+/* Add a background color to alternate rows in a container */
+.container .row:nth-child(even),
+.answersContainer .row:nth-child(even) {
+  background-color: #f5f5f5;
+}
+
+/* Add a shadow when hovering over containers */
+.container:hover,
+.answersContainer:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Style buttons inside containers */
+.container .btn,
+.answersContainer .btn {
+  margin-top: 10px;
+}
+
+/* Add a margin to the bottom of the container */
+.container:last-child,
+.answersContainer:last-child {
+  margin-bottom: 40px;
+}
+
+.comment {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.username {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.comment-text {
+  margin-bottom: 10px;
+}
+
+.timestamp {
+  font-size: 12px;
+  color: #666;
+}
+
+#add-btn {
+  background-color: green;
+}
+
+#remove_btn {
+  background-color: red;
+}
+
+.img-responsive.rounded.float-left.custom-image {
+  width: 60%;
+}
+
+.outer-wrapper {
+  background-color: #f0f0f0;
+  padding: 20px;
+}
+
+.instructor {
+  font-weight: bold;
+}

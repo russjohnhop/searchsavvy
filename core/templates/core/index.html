@@ -1,0 +1,85 @@
+{% extends "core/layout.html" %} {% block body %}
+<div class="brand_header">
+  <h1 class="brand_h1">Unlock Your Digital Marketing Success</h1>
+  <p class="brand_paragraph">
+    Supercharge your digital marketing career with cutting-edge PPC training:
+    gain in-depth knowledge, master powerful strategies and achieve unstoppable
+    growth.
+  </p>
+  <button
+    type="button"
+    class="cta_btn"
+    onclick="window.location.href = '{% url 'courses' %}'"
+  >
+    Get started
+  </button>
+</div>
+
+<div class="why">
+  <img
+    class="why_image"
+    src="https://images.unsplash.com/photo-1507537297725-24a1c029d3ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
+    alt="My Image"
+  />
+  <div class="why_content">
+    <h2 class="why_header">Why Search Savvy?</h2>
+    <p class="why_para">
+      Propel your career or expand your knowledge at any level.</p>
+    <p class="why_para">Industry-leading instructors who bring their extensive experience
+      and insider insights.</p>
+    <p class="why_para">Cutting edge continuously updated content.</p>
+    </p>
+  </div>
+</div>
+
+<div class="testimonials">
+  <h2 class="testimonials_header">What our customers are saying</h2>
+  <h4 class="testimonials_header_sm">A word from our users</h4>
+    <div class="testimonial_card">
+        <p class="testimonial_text">
+          "Enrolling in this PPC course was a game-changer for me. The
+          comprehensive curriculum and practical exercises helped me sharpen my
+          skills and deliver exceptional results for our clients at Wavemaker. I
+          highly recommend this platform to anyone looking to excel in the
+          fast-paced world of digital advertising."
+        </p>
+      </div>
+      <div class="testimonial_footer">
+        <small class="text-muted"
+          >- Sarah Anderson, <cite title="Wavemaker">Wavemaker</cite></small
+        >
+      </div>
+      <div class="testimonial_card">
+        <p class="testimonial_text">
+          "I'm impressed by the depth of knowledge shared in this PPC course.
+          The instructors' industry expertise and real-world examples provided
+          valuable insights that I immediately applied to our campaigns at
+          Mindshare. This platform is a must-have resource for digital marketers
+          striving to maximize their ROI."
+        </p>
+      </div>
+      <div class="testimonial_footer">
+        <small class="text-muted"
+          >- Mark Roberts, <cite title="Mindshare">Mindshare</cite></small
+        >
+      </div>
+      <div class="testimonial_card">
+        <p class="testimonial_text">
+          "I can confidently say that this PPC course has elevated my skills and
+          boosted my career at EssenceMediacom. The engaging video lessons and
+          interactive quizzes kept me motivated throughout the learning journey.
+          The knowledge gained here empowered me to implement innovative
+          strategies and drive exceptional campaign performance."
+        </p>
+      </div>
+      <div class="testimonial_footer">
+        <small class="text-muted"
+          >- Laura Sanchez,
+          <cite title="EssenceMediacom">EssenceMediacom</cite></small
+        >
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

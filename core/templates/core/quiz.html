@@ -1,0 +1,43 @@
+
+{% extends "core/layout.html" %}
+
+{% block extra_script %}
+<script>
+    // Assuming the "user" variable is available in the Django template context
+    const CURRENT_USER_ID = {{ user.id }}; // Assuming "user" has an "id" attribute
+  </script>
+{% endblock %}
+
+{% block body %}
+    <h1 class="display-4" id="quiz-title" data-quiz-id="{{quiz.id}}">{{ quiz.title }}</h1>
+    <form id="form">
+    {% csrf_token %}
+        <h3 class="mb-4" id="question">{{ question.text }}</h3>
+        <div id="answersContainer">
+            {% for answer in answers %}
+            <div class="form-check mb-2" id="answers">
+                <input class="form-check-input" type="radio" id="answer{{ answer.id }}" name="question{{ question.id }}" value="{{ answer.id }}">     
+                <label class="form-check-label" for="answer{{ answer.id }}">{{ answer.text }}</label>
+            </div>
+        {% endfor %}
+        </div>
+        <button class="btn btn-primary" id="submit" type="button" data-id="{{question.id}}">Submit</button>
+    </form>
+    <div class="card text-white bg-success mb-3"  style="display: none; max-width: 18rem;" id="success">
+        <div class="card-body">
+            <h5 class="card-title">
+                <i class="fas fa-check-circle me-2"></i>
+            Congratulations, you passed!
+            </h5>
+        </div>
+        </div>
+        <div class="card text-white bg-danger mb-3" style="display: none; max-width: 18rem;" id="failure">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <i class="fas fa-times-circle me-2"></i>
+                    Oops, you didn't pass!
+                </h5>
+                <button class="btn btn-light" id="retry" data-id="{{course.id}}">Retry</button>
+            </div>
+        </div>
+{% endblock %}

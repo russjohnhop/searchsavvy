@@ -1,0 +1,35 @@
+{% extends "core/layout.html" %}
+{% load embed_video_tags %}
+
+{% block body %}
+    <div class="container">
+        <h1>{{course.title}} Lesson</h1>
+        <p>{{course.description}}</p>
+        <p>Instructor: {{course.instructor}}</p>
+    </div>
+    {% if user.is_authenticated %}
+        {% if completed == False %}
+            <a href="{% url 'enrol' course_id=course.id %}" class="btn btn-info">Enroll for Free</a>
+        {% endif %}
+    {% endif %}
+    {% for lesson, contents in lessons_and_contents %}
+    <div class="container text-center">
+        <h2>Lesson: {{ lesson.title }}</h2>
+        <ul>
+            {% for content in contents %}
+                <li>{{ content }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+        <div class="container">
+            <h2>Watch The Video</h2>
+            <div class="video">
+                <iframe width="560" height="315" src="{{lesson.video_link}}" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    {% endfor %}
+        <div class="container text-center">
+            <h2>Test Your Knowledge: Take the Quiz!</h2>
+            <p><a href="{% url 'quiz' course_id=course.id %}" class="btn btn-info">Start Quiz</h3></a></p>
+        </div>
+{% endblock %}
