@@ -15,6 +15,7 @@
 body {
   margin: 0;
   font-family: "Iter Light", sans-serif;
+  min-height: 100vh;
 }
 
 /* navigation styles start here  */
@@ -63,10 +64,13 @@ nav {
   font-family: "Iter Regular", sans-serif;
 }
 
+@media (max-width: 768px) {
+  .brand {
+    font-size: 1em;
+  }
+}
+
 nav {
-  /* position: absolute;
-  text-align: left;
-  top: 100%; */
   margin-bottom: 3px;
 }
 
@@ -120,9 +124,17 @@ nav {
 }
 
 .why_image {
-  max-width: 55%;
-  height: auto;
-  margin-left: 10em;
+  width: 40%;
+  margin-left: 12em;
+}
+
+@media (max-width: 768px) {
+  .why_image {
+    width: 80%;
+    height: auto;
+    margin-left: 2em;
+    margin-top: 22em;
+  }
 }
 
 .why_content {
@@ -137,109 +149,589 @@ nav {
 }
 
 .why_para {
-  padding-top: 1.5em;
+  padding-top: 1.2em;
   font-size: 1.5em;
   padding-left: 2em;
 }
 
 .testimonials {
+  background-color: #f2f0ef;
   text-align: center;
   border: 2px solid #333;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Box shadow for a lifted effect */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .testimonial_text {
-  font-size: 16px; /* Adjust the font size for the testimonial text */
+  font-size: 16px;
   margin-bottom: 10px;
   line-height: 1.5;
-  color: #333; /* Text color */
+  color: #00262b;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
+.testimonials_header {
+  color: #00262b;
+}
+
+.testimonials_header_sm {
+  color: #00262b;
 }
 
 .testimonial_author {
+  font-family: "Iter Regular", sans-serif;
 }
 
-/* Add a border and padding to all containers */
-.container,
-.container-fluid,
-.answersContainer {
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+/* Footer styling */
+
+.footer {
+  background-color: #fdfdfd;
+  color: #00262b;
+  border-top: 1px solid #ccc;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
 }
 
-/* Style the header inside the containers */
-.container h1,
-.container h2,
-.container h3,
-.answersContainer h1,
-.answersContainer h2,
-.answersContainer h3 {
+.footer_container {
+  background-color: #fdfdfd;
+  color: #00262b;
+  border-top: 1px solid #ccc;
+  padding-left: 2em;
+}
+
+.footer_para {
+  color: #00262b;
+}
+
+/* Courses page */
+
+.courses_container {
+  text-align: center;
+}
+
+.courses_header {
+  text-align: center;
+  background-color: #00262b;
+  color: #fff;
+  margin-top: -0.05em;
+  font-family: "Iter Regular", sans-serif;
+  margin-bottom: 0;
+}
+
+.courses_link {
+  text-decoration: none;
+}
+
+.courses_course_title {
+  background-color: #f2f0ef;
   margin-top: 0;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  text-align: center;
+  align-items: center;
+  color: #00262b;
 }
 
-/* Add a background color to alternate rows in a container */
-.container .row:nth-child(even),
-.answersContainer .row:nth-child(even) {
-  background-color: #f5f5f5;
+.courses_cta_btn {
+  background: #d23228;
+  color: #fff;
+  border: 1px solid #0000;
+  font-family: "Iter Regular", sans-serif;
+  margin-top: 0.5%;
+  text-wrap: nowrap;
+  height: 3.5em;
+  width: 7em;
+  font-size: 1em;
+  margin-bottom: 1em;
 }
 
-/* Add a shadow when hovering over containers */
-.container:hover,
-.answersContainer:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+.courses_cta_btn:hover {
+  cursor: pointer;
+  background: #fff;
+  color: #d23228;
 }
 
-/* Style buttons inside containers */
-.container .btn,
-.answersContainer .btn {
-  margin-top: 10px;
+@media (max-width: 768px) {
+  .courses_cta_btn {
+    background: #d23228;
+    color: #fff;
+    border: 1px solid #0000;
+    font-family: "Iter Regular", sans-serif;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.5%;
+    text-wrap: nowrap;
+    height: 3.5em;
+    width: 7em;
+    font-size: 1em;
+    margin-bottom: 1em;
+  }
 }
 
-/* Add a margin to the bottom of the container */
-.container:last-child,
-.answersContainer:last-child {
-  margin-bottom: 40px;
+.courses_description {
+  text-align: center;
 }
 
-.comment {
+.courses_instructor {
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Course page */
+
+.course_container {
+  background-color: #fbfaf9;
+  text-align: center;
+}
+
+.course_header {
+  margin-top: 0;
+  text-align: center;
+  color: #00262b;
+  padding-top: 1em;
+  font-size: 3em;
+}
+
+.course_instructor {
+  text-align: center;
+  font-weight: bold;
+}
+
+.course_cta_btn {
+  background: #d23228;
+  color: #fff;
+  border: 1px solid #0000;
+  font-family: "Iter Regular", sans-serif;
+  margin-top: 0.5%;
+  text-wrap: nowrap;
+  height: 3.5em;
+  width: 7em;
+  font-size: 1em;
+  margin-bottom: 1em;
+}
+
+.course_cta_btn:hover {
+  cursor: pointer;
+  background: #fff;
+  color: #d23228;
+}
+
+.course_description {
+  text-align: center;
+}
+
+.course_lesson_container {
+  text-align: center;
+  background-color: #f2f0ef;
+}
+
+.course_lesson_container h2 {
+  margin-top: 0;
+  padding-top: 1em;
+  color: #00262b;
+}
+
+.course_start_btn {
+  background: #00262b;
+  color: #fff;
+  border: 1px solid #0000;
+  font-family: "Iter Regular", sans-serif;
+  justify-content: center;
+  margin-top: 0.5%;
+  text-wrap: nowrap;
+  height: 3.5em;
+  width: 7em;
+  font-size: 1em;
+  margin-bottom: 1em;
+}
+
+.course_start_btn:hover {
+  cursor: pointer;
+  background: #fff;
+  color: #00262b;
+}
+
+.course_career {
+  background-color: #00262b;
+  color: #fff;
+  text-align: center;
+  padding-bottom: 1em;
+}
+
+.course_career h2 {
+  margin-top: 0;
+  padding-top: 1em;
+  margin-bottom: 0;
+}
+
+.course_career p {
+  font-family: "Iter Regular", sans-serif;
+}
+
+.course_skills_modules {
+  text-align: center;
+}
+
+.course_skills_modules {
+  list-style-position: inside;
+}
+
+/* Lesson page styling */
+
+.lesson_container {
+  text-align: center;
+  background-color: #f2f0ef;
+  color: #00262b;
+  padding-bottom: 1em;
+  font-family: "Iter Regular", sans-serif;
+}
+
+.lesson_container h1 {
+  margin-top: 0;
+  padding-top: 0.5em;
+  font-size: 3em;
+}
+
+.lesson_content {
+  background-image: linear-gradient(180deg, #fff0, #eae6e5);
+  color: #00262b;
+  text-align: center;
+}
+
+.lesson_content ul {
+  list-style-type: none;
+}
+
+.lesson_content ul li {
+  margin-top: 0.2em;
+}
+
+.lesson_video_container {
+  background-color: #00262b;
+  text-align: center;
+  color: #fff;
+}
+
+.lesson_video_container h2 {
+  margin-top: 0;
+  padding-top: 1em;
+}
+
+.lesson_quiz_container {
+  text-align: center;
+  color: #00262b;
+}
+
+.quiz_btn {
+  background: #d23228;
+  color: #fff;
+  border: 1px solid #0000;
+  font-family: "Iter Regular", sans-serif;
+  margin-top: 0.5%;
+  text-wrap: nowrap;
+  height: 3.5em;
+  width: 7em;
+  font-size: 1em;
+  margin-bottom: 1em;
+}
+
+.quiz_btn:hover {
+  cursor: pointer;
+  background: #fff;
+  color: #d23228;
+}
+
+/* Quiz page styling */
+
+.quiz_container {
+  min-height: 100%;
+  text-align: center;
+  color: #00262b;
+  align-items: center;
+}
+
+#quiz-title {
+  font-size: 3em;
+}
+
+#question {
+  padding-top: 1em;
+}
+
+.quiz_form {
+  background-color: #f2f0ef;
+}
+
+.form-check-input {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.submit_btn {
+  background: #d23228;
+  color: #fff;
+  border: 1px solid #0000;
+  font-family: "Iter Regular", sans-serif;
+  margin-top: 1.5em;
+  text-wrap: nowrap;
+  height: 2.5em;
+  width: 6em;
+  font-size: 1em;
+  margin-bottom: 1em;
+}
+
+.submit_btn:hover {
+  cursor: pointer;
+  background: #fff;
+  color: #d23228;
+}
+
+#answersContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-check {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px; /* Add margin between each answer */
+}
+
+.form-check label {
+  margin-left: 10px;
+}
+
+#success {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.success {
+  text-align: center;
+  background-color: #00262b;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+#failure {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.failure {
+  text-align: center;
+  background-color: #d23228;
+  color: #fff;
+  padding: 20px;
+}
+
+.retry-btn {
+  background: #fff;
+  color: #d23228;
+  border: 1px solid #0000;
+  font-family: "Iter Regular", sans-serif;
+  margin-top: 1.5em;
+  text-wrap: nowrap;
+  height: 2.5em;
+  width: 6em;
+  font-size: 1em;
+  margin-bottom: 1em;
+}
+
+.retry-btn:hover {
+  cursor: pointer;
+  background: #f2f0ef;
+  color: #fff;
+}
+
+/* Login page */
+
+.register-h2 {
+  text-align: center;
+}
+
+.login-h2 {
+  color: #00262b;
+}
+
+.login-message {
+  color: #00262b;
+}
+
+.login_form {
+  max-width: 300px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.btn-primary {
+  background-color: #d23228;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #00262b;
+}
+
+a {
+  color: #00262b;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.account {
+  text-align: center;
+}
+
+.register-link {
+  font-weight: bolder;
+  font-family: "Iter Regular", sans-serif;
+}
+
+.register {
+  text-align: center;
+}
+
+/* Enrol page */
+
+.enrol-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.enrol-title {
+  text-align: center;
+  color: #00262b;
+}
+
+.enrol-hr {
+  border-color: #00262b;
+}
+
+.enrol-success-alert {
+  background-color: #00262b;
+  color: #fff;
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.enrol-success-message {
+  font-weight: bold;
+}
+
+.enrol-course-title {
+  font-size: 24px;
+  margin-top: 20px;
+  color: #00262b;
+}
+
+.enrol-course-description {
+  font-size: 16px;
+}
+
+.enrol-instructor {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.enrol-skills-title {
+  font-size: 18px;
+  margin-top: 20px;
+  color: #00262b;
+}
+
+.enrol-skills-list {
   margin-bottom: 20px;
+}
+
+.enrol-skill {
+  font-size: 16px;
+}
+
+.enrol-modules-title {
+  font-size: 18px;
+  margin-top: 20px;
+  color: #00262b;
+}
+
+.enrol-modules-list {
+  margin-bottom: 20px;
+}
+
+.enrol-module {
+  font-size: 16px;
+}
+
+.enrol-form-group {
+  margin-bottom: 20px;
+}
+
+.enrol-label {
+  color: #00262b;
+}
+
+.enrol-input {
+  width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
 
-.username {
+.enrol-form-check {
+  margin-bottom: 20px;
+}
+
+.enrol-checkbox-label {
   font-weight: bold;
-  margin-bottom: 5px;
 }
 
-.comment-text {
-  margin-bottom: 10px;
+.enrol-submit-btn {
+  background-color: #d23228;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-
 }
 
-.timestamp {
-  font-size: 12px;
-  color: #666;
+.enrol-submit-btn:hover {
+  background-color: #00262b;
 }
 
-#add-btn {
-  background-color: green;
-}
-
-#remove_btn {
-  background-color: red;
-}
-
-.img-responsive.rounded.float-left.custom-image {
-  width: 60%;
-}
-
-.outer-wrapper {
-  background-color: #f0f0f0;
-  padding: 20px;
-}
-
-.instructor {
-  font-weight: bold;
+.enrol-back-to-course {
+  color: #fff;
 }

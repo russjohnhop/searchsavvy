@@ -1,57 +1,84 @@
-{% extends "core/layout.html" %}
-
-{% block body %}
-<div class="container">
-  <div class="row">
-    <div class="col-md-8 offset-md-2">
-      <h2>Enrolment Page</h2>
-      <hr>
+{% extends "core/layout.html" %} {% block body %}
+<div class="enrol-container">
+  <div class="enrol-row">
+    <div class="enrol-col">
+      <h2 class="enrol-title">Enrolment</h2>
+      <hr class="enrol-hr" />
 
       {% if completed %}
-      <div class="alert alert-success mt-4" role="alert">
-        <p>You have successfully enrolled in this course!</p>
-        <a href="{% url 'course' course_id=course.id %}" class="btn btn-info">Back to Course</a>
+      <div class="enrol-success-alert mt-4" role="alert">
+        <p class="enrol-success-message">
+          You have successfully enrolled in this course!
+        </p>
+        <a
+          href="{% url 'course' course_id=course.id %}"
+          class="enrol-back-to-course"
+          >Back to Course</a
+        >
       </div>
       {% endif %}
 
-      <h3>{{ course.title }}</h3>
-      <p class="text-break">{{ course.description }}</p>
-      <p class="mb-2">Instructor: {{ course.instructor }}</p>
-      <h4>Skills:</h4>
-      <ul class="list-group">
+      <h3 class="enrol-course-title">{{ course.title }}</h3>
+      <p class="enrol-course-description text-break">
+        {{ course.description }}
+      </p>
+      <p class="enrol-instructor mb-2">Instructor: {{ course.instructor }}</p>
+      <h4 class="enrol-skills-title">Skills:</h4>
+      <ul class="enrol-skills-list list-group">
         {% for skill in course.skills.splitlines %}
-          <li class="list-group-item">{{ skill }}</li>
+        <li class="enrol-skill list-group-item">{{ skill }}</li>
         {% endfor %}
       </ul>
-      <p class="mb-2">Modules:</p>
-    <ul class="list-group">
+      <p class="enrol-modules-title mb-2">Modules:</p>
+      <ul class="enrol-modules-list list-group">
         {% for module in course.modules.splitlines %}
-            <li class="list-group-item">{{ module }}</li>
+        <li class="enrol-module list-group-item">{{ module }}</li>
         {% endfor %}
-    </ul>
+      </ul>
 
       <form method="POST" action="{% url 'enrol' course_id=course.id %}">
         {% csrf_token %}
-        <input type="hidden" name="course_id" value="{{ course.id }}">
+        <input type="hidden" name="course_id" value="{{ course.id }}" />
 
-        <div class="form-group">
-          <label for="name">Name:</label>
-          <input type="text" class="form-control" id="name" name="name" required>
+        <div class="enrol-form-group">
+          <label for="name" class="enrol-label">Name:</label>
+          <input
+            type="text"
+            class="enrol-input form-control"
+            id="name"
+            name="name"
+            required
+          />
         </div>
 
-        <div class="form-group">
-          <label for="email">Email:</label>
-          <input type="email" class="form-control" id="email" name="email" required>
+        <div class="enrol-form-group">
+          <label for="email" class="enrol-label">Email:</label>
+          <input
+            type="email"
+            class="enrol-input form-control"
+            id="email"
+            name="email"
+            required
+          />
         </div>
 
-        <div class="form-check">
-          <input type="checkbox" class="form-check-input" id="terms" name="terms" required>
-          <label class="form-check-label" for="terms">I agree to the terms and conditions.</label>
+        <div class="enrol-form-check">
+          <input
+            type="checkbox"
+            class="enrol-checkbox form-check-input"
+            id="terms"
+            name="terms"
+            required
+          />
+          <label class="enrol-checkbox-label form-check-label" for="terms"
+            >I agree to the terms and conditions.</label
+          >
         </div>
 
-        <button type="submit" class="btn btn-primary">Enroll Now</button>
+        <button type="submit" class="enrol-submit-btn btn btn-primary">
+          Enroll Now
+        </button>
       </form>
-
     </div>
   </div>
 </div>

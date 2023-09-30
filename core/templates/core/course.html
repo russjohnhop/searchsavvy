@@ -1,46 +1,60 @@
-{% extends "core/layout.html" %}
+{% extends "core/layout.html" %} {% block body %}
+<div class="course_container">
+  <h1 class="course_header">{{course.title}}</h1>
+  <p class="course_description">{{course.description}}</p>
+  <p class="course_instructor">Instructor: {{course.instructor}}</p>
+  {% if user.is_authenticated %}
+  <button
+    type="button"
+    class="course_cta_btn"
+    onclick="window.location.href = '{% url 'enrol' course_id=course.id %}'"
+  >
+    Enroll
+  </button>
+  {% else %}
+  <button
+    type="button"
+    class="course_cta_btn"
+    onclick="window.location.href = '{% url 'register' %}'"
+  >
+    Please sign in or register to begin learning
+  </button>
+  {% endif %}
+</div>
+{% if enrollment %}
+<div class="course_lesson_container">
+  <h2>Lesson</h2>
+  <button
+    type="button"
+    class="course_start_btn"
+    onclick="window.location.href = '{% url 'lesson' course_id=course.id %}'"
+  >
+    Start learning
+  </button>
+</div>
+{% endif %}
 
-{% block body %}
-    <div class="container">
-        <h1>{{course.title}}</h1>
-        <p>{{course.description}}</p>
-        <p>Instructor: {{course.instructor}}</p>
-        {% if user.is_authenticated %}
-        <a href="{% url 'enrol' course_id=course.id %}" class="btn btn-info">Enroll for Free</a>
-        {% else %}
-        <a href="{% url 'register' %}" class="btn btn-info">Please sign in or register to begin learning</a>
-        {% endif %}
-    </div>
-        {% if enrollment %}
-        <div class="container">
-            <h2>Lesson</h2>
-            <a href="{% url 'lesson' course_id=course.id %}" class="btn btn-info">Start learning</a>
-        </div>
-        {% endif %}
+<div class="course_career">
+  <h2>Earn a career certificate</h2>
+  <p>
+    Add this credential to your LinkedIn profile, resume, or CV. <p class="course_emphasis">Share it on
+      social media and in your performance review.</p>
+  </p>
+</div>
 
-        <div class="container">
-        <h2>Earn a career certificate</h2>
-        <p>Add this credential to your LinkedIn profile, resume, or CV.
-            Share it on social media and in your performance review.</p>
-        </div>
-
-        <div class="container">
-            <h2>Skills you'll gain</h2>
-            <ul>
-                {% for line in content_lines %}
-                    <li>{{ line }}</li>
-                {% endfor %}
-            </ul>
-        </div>
-
-        <div class="container">
-            <h2>Modules in this course</h2>
-            <ul>
-                {% for module in modules %}
-                    <li>{{ module }}</li>
-                {% endfor %}
-            </ul>
-        </div>
-
+<div class="course_skills_modules">
+  <h2>Skills you'll gain</h2>
+  <ul>
+    {% for line in content_lines %}
+    <li>{{ line }}</li>
+    {% endfor %}
+  </ul>
+  <h2>Modules in this course</h2>
+  <ul>
+    {% for module in modules %}
+    <li>{{ module }}</li>
+    {% endfor %}
+  </ul>
+</div>
 
 {% endblock %}

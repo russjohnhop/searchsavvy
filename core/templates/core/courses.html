@@ -1,12 +1,18 @@
-{% extends "core/layout.html" %}
-
-{% block body %}
-    <h1>Courses</h1>
-        {% for course in courses %}
-        <div class="container">
-            <a href="{% url 'course' course_id=course.id %}"><h3>{{course.title}}</h3></a><br> 
-             <p>{{course.description}}</p>
-             <p class="instructor">Instructor: {{course.instructor}}</p>
-        </div>
-        {% endfor %}
-{% endblock %}
+{% extends "core/layout.html" %} {% block body %}
+<h1 class="courses_header">Courses</h1>
+{% for course in courses %}
+<div class="courses_container">
+  <a class="courses_link" href="{% url 'course' course_id=course.id %}"
+    ><h3 class="courses_course_title">{{course.title}}</h3></a
+  ><br />
+  <p class="courses_description">{{course.description}}</p>
+  <p class="courses_instructor">Instructor: {{course.instructor}}</p>
+  <button
+    type="button"
+    class="courses_cta_btn"
+    onclick="window.location.href = '{% url 'course' course_id=course.id %}'"
+  >
+    Enroll
+  </button>
+</div>
+{% endfor %} {% endblock %}

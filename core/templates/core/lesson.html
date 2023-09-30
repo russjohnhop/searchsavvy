@@ -1,35 +1,47 @@
-{% extends "core/layout.html" %}
-{% load embed_video_tags %}
-
-{% block body %}
-    <div class="container">
-        <h1>{{course.title}} Lesson</h1>
-        <p>{{course.description}}</p>
-        <p>Instructor: {{course.instructor}}</p>
-    </div>
-    {% if user.is_authenticated %}
-        {% if completed == False %}
-            <a href="{% url 'enrol' course_id=course.id %}" class="btn btn-info">Enroll for Free</a>
-        {% endif %}
-    {% endif %}
-    {% for lesson, contents in lessons_and_contents %}
-    <div class="container text-center">
-        <h2>Lesson: {{ lesson.title }}</h2>
-        <ul>
-            {% for content in contents %}
-                <li>{{ content }}</li>
-            {% endfor %}
-        </ul>
-    </div>
-        <div class="container">
-            <h2>Watch The Video</h2>
-            <div class="video">
-                <iframe width="560" height="315" src="{{lesson.video_link}}" frameborder="0" allowfullscreen></iframe>
-            </div>
-        </div>
+{% extends "core/layout.html" %} {% load embed_video_tags %} {% block body %}
+<div class="lesson_container">
+  <h1 class="lesson_title">{{course.title}} Lesson</h1>
+  <p class="lesson_description">{{course.description}}</p>
+  <p class="lesson_instructor">Instructor: {{course.instructor}}</p>
+</div>
+{% if user.is_authenticated %} {% if completed == False %}
+<button
+  type="button"
+  class="course_cta_btn"
+  onclick="window.location.href = '{% url 'enrol' course_id=course.id  %}'"
+>
+  Enrol
+</button>
+{% endif %} {% endif %} {% for lesson, contents in lessons_and_contents %}
+<div class="lesson_content">
+  <h2>Lesson: {{ lesson.title }}</h2>
+  <ul>
+    {% for content in contents %}
+    <li>{{ content }}</li>
     {% endfor %}
-        <div class="container text-center">
-            <h2>Test Your Knowledge: Take the Quiz!</h2>
-            <p><a href="{% url 'quiz' course_id=course.id %}" class="btn btn-info">Start Quiz</h3></a></p>
-        </div>
+  </ul>
+</div>
+<div class="lesson_video_container">
+  <h2>Watch The Video</h2>
+  <div class="video">
+    <iframe
+      width="560"
+      height="315"
+      src="{{lesson.video_link}}"
+      frameborder="0"
+      allowfullscreen
+    ></iframe>
+  </div>
+</div>
+{% endfor %}
+<div class="lesson_quiz_container">
+  <h2>Test Your Knowledge: Take the Quiz!</h2>
+  <button
+    type="button"
+    class="quiz_btn"
+    onclick="window.location.href = '{% url 'quiz' course_id=course.id %}'"
+  >
+    Start
+  </button>
+</div>
 {% endblock %}
